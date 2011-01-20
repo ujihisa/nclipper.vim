@@ -3,8 +3,7 @@ function! s:nclipper()
     echoerr 'use V'
     return
   endif
-  let begin = getpos("'<")[1]
-  let end   = getpos("'>")[1]
+  let [begin, end] = [getpos("'<")[1], getpos("'>")[1]]
   let max_len = len(end)
   let value = join(map(getline(begin, end), g:nclipper_format), "\n")
   call setreg('+', value, "V")
