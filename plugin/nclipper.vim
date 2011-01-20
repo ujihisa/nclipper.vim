@@ -3,9 +3,10 @@ function! s:nclipper()
     echoerr 'use V'
     return
   endif
-  let lines = getline(getpos("'<")[1], getpos("'>")[1])
+  let end = getpos("'>")[1]
+  let lines = getline(getpos("'<")[1], end)
   let beginning = getpos('.')[1]
-  let value = join(map(lines, 'printf("%d %s", v:key + beginning, v:val)'), "\n")
+  let value = join(map(lines, 'printf("%" . len(end) . "d %s", v:key + beginning, v:val)'), "\n")
   call setreg('+', value, "V")
 endfunction
 
