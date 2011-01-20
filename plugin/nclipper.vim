@@ -10,6 +10,7 @@ function! s:nclipper()
 endfunction
 
 vnoremap <silent> <Plug>(nclipper) :<C-u>call <SID>nclipper()<Cr>
-if !exists('g:nclipper_nomap') || !g:nclipper_nomap
+if (!exists('g:nclipper_nomap') || !g:nclipper_nomap)
+\   && !hasmapto('<Plug>(nclipper)', 'v', 0)
   silent! vmap <unique> <C-y> <Plug>(nclipper)
 endif
