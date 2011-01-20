@@ -27,3 +27,24 @@ If you don't want to map `<C-y>`, assign a true value into `g:nclipper_nomap` in
 And you can map the functionality on any key like the following example.
 
     vmap <space>y <Plug>(nclipper)
+
+If you want to change the format of yanked string,
+you can specify the format with `g:nclipper_format`.
+Here is the default value:
+
+    let g:nclipper_format = 'printf("%" . max_len . "d %s", v:key + begin, v:val)'
+
+You can use these variables:
+
+- `v:key`
+    - current line's index number
+- `v:val`
+    - current line's string
+- `begin`
+    - the first line number
+- `end`
+    - the last line number
+- `max_len`
+    - max string length between `begin` and `end`.
+    for e.g.: when `begin` is 98 and `end` is 102, `max_len` is 3.
+    this value is identical to `len(end)`.
