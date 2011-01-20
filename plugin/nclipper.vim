@@ -3,8 +3,7 @@ function! s:nclipper()
     echoerr 'use V'
     return
   endif
-  execute 'normal! `<V`>"+y'
-  let lines = split(@+, "\n")
+  let lines = getline(getpos("'<")[1], getpos("'>")[1])
   let beginning = getpos('.')[1]
   let @+ = join(map(lines, 'printf("%d %s", v:key + beginning, v:val)'), "\n")
 endfunction
