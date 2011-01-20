@@ -17,9 +17,12 @@
 
   http://gyazo.com/5000e1cca5ad81203541fb7e3ce82a50.png
 
+  Contributor: tyru
+
   The development is in github. https://github.com/ujihisa/nclipper.vim
 "install_details": |
   Unarchive and put it into a dir of your &rtp.
 "versions":
+  - '1.1': Align line numbers and format option `g:nclipper_format`
   - '1.0': Initial upload
 # vim: filetype=yaml
