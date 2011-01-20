@@ -11,5 +11,5 @@ endfunction
 
 vnoremap <silent> <Plug>(nclipper) :<C-u>call <SID>nclipper()<Cr>
 if !exists('g:nclipper_nomap') || !g:nclipper_nomap
-  vmap <C-y> <Plug>(nclipper)
+  silent! vmap <unique> <C-y> <Plug>(nclipper)
 endif
