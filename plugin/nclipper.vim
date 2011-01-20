@@ -3,10 +3,10 @@ function! s:nclipper()
     echoerr 'use V'
     return
   endif
-  let end = getpos("'>")[1]
-  let lines = getline(getpos("'<")[1], end)
-  let beginning = getpos('.')[1]
-  let value = join(map(lines, 'printf("%" . len(end) . "d %s", v:key + beginning, v:val)'), "\n")
+  let begin = getpos("'<")[1]
+  let end   = getpos("'>")[1]
+  let max_len = len(end)
+  let value = join(map(getline(begin, end), g:nclipper_format), "\n")
   call setreg('+', value, "V")
 endfunction
 
@@ -14,4 +14,9 @@ vnoremap <silent> <Plug>(nclipper) :<C-u>call <SID>nclipper()<Cr>
 if (!exists('g:nclipper_nomap') || !g:nclipper_nomap)
 \   && !hasmapto('<Plug>(nclipper)', 'v', 0)
   silent! vmap <unique> <C-y> <Plug>(nclipper)
+endif
+
+if !exists('g:nclipper_format')
+    " TODO: Support Funcref
+    let g:nclipper_format = 'printf("%" . max_len . "d %s", v:key + begin, v:val)'
 endif
