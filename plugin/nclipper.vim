@@ -5,7 +5,7 @@ function! s:nclipper()
   endif
   let [begin, end] = [getpos("'<")[1], getpos("'>")[1]]
   let max_len = len(end)
-  let value = join(map(getline(begin, end), g:nclipper_format), "\n")
+  let value = @% . ":" . "\n" . join(map(getline(begin, end), g:nclipper_format), "\n")
   if has('xterm_clipboard')
     call setreg('+', value, "V")
   else
