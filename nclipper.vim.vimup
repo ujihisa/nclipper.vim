@@ -17,12 +17,15 @@
 
   http://gyazo.com/5000e1cca5ad81203541fb7e3ce82a50.png
 
-  Contributor: tyru
+  If you also want to copy the filename in the 1st line, use `<M-y>` (meta + y which is cmd + y on OSX and alt + y on Linux.)
+
+  Contributors: tyru and rconradharris
 
   The development is in github. https://github.com/ujihisa/nclipper.vim
 "install_details": |
   Unarchive and put it into a dir of your &rtp.
 "versions":
+  - '1.2': Support for non-xterm. Adding `<M-y>` to copy with filename.
   - '1.1': Align line numbers and format option `g:nclipper_format`
   - '1.0': Initial upload
 # vim: filetype=yaml
