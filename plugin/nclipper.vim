@@ -24,6 +24,6 @@ if (!exists('g:nclipper_nomap') || !g:nclipper_nomap)
 endif
 
 if !exists('g:nclipper_format')
-    " TODO: Support Funcref
-    let g:nclipper_format = 'printf("%" . max_len . "d %s", v:key + begin, v:val)'
+  " TODO: Support Funcref
+  let g:nclipper_format = 'printf("%" . max_len . "d %s", v:key + begin, v:val)'
 endif
